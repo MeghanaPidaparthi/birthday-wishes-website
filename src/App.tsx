@@ -3,7 +3,7 @@ import HeroSection from './components/HeroSection';
 
 function App() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-dreamy font-poppins min-h-screen animate-gradientFlow">
       <HeroSection />
     </main>
   );

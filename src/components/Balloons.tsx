@@ -7,7 +7,14 @@ const Balloon = ({ style, emoji }: { style: React.CSSProperties; emoji?: string 
     const audio = new Audio("/uia-cat-birthday.mp3");
     audio.play();
   };
-
+  const pastelColors = [
+    'bg-pastelPink/80',
+    'bg-pastelBlue/80',
+    'bg-pastelPurple/80',
+    'bg-pastelMint/80',
+    'bg-pastelYellow/80',
+  ];
+  
   return (
     <div className="balloon-wrapper" style={style} onMouseEnter={handleHover}>
       <div className="balloon">

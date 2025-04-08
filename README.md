@@ -1,38 +1,39 @@
-# 🎂 Sridevi's Birthday Surprise Website 🎉
 
-A fun, interactive birthday celebration website built with **React + TypeScript**, featuring balloons, confetti, birthday music, and everyone's favorite — the **"Uia Uia" cat** 🐱💖.
+# Sridevi's Birthday Surprise Website
 
----
-
-## ✨ Features
-
-- 🎈 Animated gradient balloons floating up
-- 🎊 Confetti explosion on button click
-- 🎵 Looped birthday song audio
-- 🐱 Embedded "Oia Uia" cat gif from Tenor
-- 🩷 Aesthetic pastel-themed design using Tailwind CSS
-- 🎁 Triggered celebration on **"Click for Surprise"** button
+An interactive birthday website built with React and TypeScript, featuring animated balloons, confetti effects, background music, and a celebratory message triggered on user interaction.
 
 ---
 
-## 🧱 Tech Stack
+## Features
 
-- ⚛️ React + TypeScript
-- 🎨 Tailwind CSS
-- 🧩 ShadCN UI (for button styling)
-- 🎇 `canvas-confetti` for confetti animation
-- 🎵 HTML5 Audio Tag
-- 🐱 Tenor embed (or local gif fallback)
-
----
-
-## 🖼 Preview
-
-> Add a screenshot or screen recording GIF here for demo.
+- Gradient balloons animated with CSS
+- Confetti animation on trigger
+- Background birthday song (autoplay and loop)
+- Embedded "Uia Uia" cat GIF (locally or via Tenor)
+- Responsive and pastel-themed UI using Tailwind CSS
+- Celebration sequence starts on button click
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
+
+- React + TypeScript (using Create React App)
+- Tailwind CSS
+- ShadCN UI (Button component)
+- Canvas Confetti
+- HTML5 Audio
+- GIF embed from Tenor
+
+---
+
+## Preview
+
+_Add a screenshot or recording here to showcase the final experience._
+
+---
+
+## Getting Started
 
 ### 1. Clone the Repository
 

@@ -22,12 +22,13 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-auroraBlue text-center px-4 font-birthday relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center h-screen px-4 text-center bg-dreamy font-poppins text-xl animate-gradientFlow transition-all">
       {!showSurprise ? (
         <button
           onClick={handleClick}
-          className="bg-pastelPink text-white text-lg font-bold px-6 py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
-        >
+          className="bg-pastelPink text-white text-lg font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-pink-300 transition duration-300"
+        //changed class name
+        > 
           Click for Surprise
         </button>
       ) : (
