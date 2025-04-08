@@ -1,30 +1,59 @@
 // src/components/Balloons.tsx
-import React, { useEffect, useRef } from 'react';
-import './Balloons.css';
+import React, { useEffect } from "react";
+import "./Balloons.css";
 
-interface BalloonsProps {
-  count?: number;
-  trigger?: boolean;
-}
+const Balloon = ({ style, emoji }: { style: React.CSSProperties; emoji?: string }) => {
+  const handleHover = () => {
+    const audio = new Audio("/uia-cat-birthday.mp3");
+    audio.play();
+  };
 
-const Balloons: React.FC<BalloonsProps> = ({ count = 20, trigger }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  return (
+    <div className="balloon-wrapper" style={style} onMouseEnter={handleHover}>
+      <div className="balloon">
+        {emoji && <span className="emoji">{emoji}</span>}
+        <div className="ribbon" />
+      </div>
+    </div>
+  );
+};
 
+const Balloons = () => {
   useEffect(() => {
-    if (trigger && containerRef.current) {
-      containerRef.current.innerHTML = ''; // Clear previous balloons
+    (import("canvas-confetti") as Promise<{ default: any }>).then(({ default: confetti }) => {
+      confetti({
+        particleCount: 100,
+        spread: 80,
+        origin: { y: 0.6 },
+      });
+    });
+  }, []);
 
-      for (let i = 0; i < count; i++) {
-        const balloon = document.createElement('div');
-        balloon.className = 'balloon';
-        balloon.style.left = `${Math.random() * 100}%`;
-        balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 80%)`;
-        containerRef.current.appendChild(balloon);
-      }
-    }
-  }, [trigger, count]);
+  const emojis = ["🎁", "💖", "🎀", "🌟", "🩷", "🎊"];
+  const colors = ["#f472b6", "#facc15", "#a78bfa", "#34d399", "#60a5fa", "#f87171"];
 
-  return <div ref={containerRef} className="balloons-container" />;
+  return (
+    <div className="balloons-container">
+      {Array.from({ length: 20 }).map((_, i) => {
+        const left = Math.random() * 100;
+        const delay = Math.random() * 5;
+        const emoji = i % 3 === 0 ? emojis[i % emojis.length] : undefined;
+        const color = colors[i % colors.length];
+
+        return (
+          <Balloon
+            key={i}
+            emoji={emoji}
+            style={{
+              left: `${left}%`,
+              animationDelay: `${delay}s`,
+              background: `linear-gradient(to top, ${color}, white)`,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
 };
 
 export default Balloons;

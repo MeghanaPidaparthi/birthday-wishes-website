@@ -1,19 +1,47 @@
-// src/components/HeroSection.tsx
 import React, { useState } from 'react';
 import Balloons from './Balloons';
+import  OiaSticker  from './OiaSticker';
+import confetti from 'canvas-confetti';
 
 const HeroSection = () => {
-  const [showBalloons, setShowBalloons] = useState(false);
+  const [showSurprise, setShowSurprise] = useState(false);
+
+  const handleClick = () => {
+    setShowSurprise(true);
+
+    // Trigger confetti
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 },
+    });
+
+    // Play audio
+    const audio = new Audio('/uia-cat-birthday.mp3');
+    audio.play();
+  };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-pink-100">
-      <button
-        onClick={() => setShowBalloons(!showBalloons)}
-        className="z-10 bg-blue-500 text-white py-2 px-4 rounded-lg"
-      >
-        🎈 Click for Surprise!
-      </button>
-      <Balloons trigger={showBalloons} />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-auroraBlue text-center px-4 font-birthday relative overflow-hidden">
+      {!showSurprise ? (
+        <button
+          onClick={handleClick}
+          className="bg-pastelPink text-white text-lg font-bold px-6 py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
+        >
+          Click for Surprise
+        </button>
+      ) : (
+        <>
+          <h1 className="text-4xl sm:text-6xl font-bold text-auroraPink mb-6 drop-shadow-md z-10">
+            🎉 Happy Birthday Sridevi! 🎈
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-700 mb-4 max-w-xl z-10">
+            You’re officially one year wiser... and still not a constant 😌
+          </p>
+          <OiaSticker />
+          <Balloons />
+        </>
+      )}
     </div>
   );
 };

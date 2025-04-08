@@ -1,21 +1,14 @@
-import { useEffect } from 'react';
-
-export const OiaSticker = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://tenor.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
+const OiaSticker = () => {
   return (
-    <div className="max-w-sm mx-auto">
-      <div className="tenor-gif-embed" data-postid="12805916815008299407" data-share-method="host" data-aspect-ratio="1" data-width="100%">
-        <a href="https://tenor.com/view/oia-uia-oia-cat-uia-cat-catcultclassics-gif-12805916815008299407">
-          Oia Uia Sticker
-        </a> from <a href="https://tenor.com/search/oia-stickers">Oia Stickers</a>
-      </div>
+    <div className="flex flex-col items-center gap-4 max-w-md mx-auto mt-8 px-4">
+      <img
+        src="/ui-ai-ai.gif"
+        alt="Ui Ai Ai Cat"
+        className="rounded-lg shadow-md max-w-full"
+      />
       <audio src="/uia-cat-birthday.mp3" autoPlay loop />
     </div>
   );
 };
+
+export default OiaSticker;

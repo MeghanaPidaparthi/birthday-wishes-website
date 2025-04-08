@@ -1,12 +1,12 @@
-import React from "react";
-import HeroSection from "./components/HeroSection";
+import React from 'react';
+import HeroSection from './components/HeroSection';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="min-h-screen overflow-hidden relative">
+    <main className="bg-white min-h-screen">
       <HeroSection />
-    </div>
+    </main>
   );
-};
+}
 
 export default App;
